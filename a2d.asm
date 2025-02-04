@@ -21,7 +21,7 @@ start:
 
 ;---------------------------------------------------------------------------------------------------------------------------
 ;delay 1 sec with Timer1
-;Timer1 = = (65536 * 200 * 8) ns ~= 105 ms
+;Timer1 = (65536 * 200 * 8) ns ~= 105 ms
 init_timer1:	
 	overflow_counts EQU 0x30	;it takes ~9 overflows of Timer1 to measure 1 second
 	movlw 0x09
@@ -37,7 +37,7 @@ init_timer1:
 set_timer1:
 	clrf TMR1H			;Timer1=0	
 	clrf TMR1L	
-	bsf	T1CON, TMR1ON		; Timer 1 starts to increment
+	bsf T1CON, TMR1ON		; Timer 1 starts to increment
 
 wait:	
 	btfss	PIR1, TMR1IF		; Checking the overflow flag in Timer1
